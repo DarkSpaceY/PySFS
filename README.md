@@ -16,7 +16,7 @@ It provides high-level access to GET and POST endpoints for controlling rockets,
 pip install PySFS
 ```
 
-> ⚠️ Requires the SFSControl mod to be running in your SFS world at the specified IP and port.
+> ⚠️ Requires the [SFSControl mod](https://github.com/SFSPlayer-sys/SFSControl) to be running in your SFS world at the specified IP and port.
 
 ## 🧠 Usage Example
 
