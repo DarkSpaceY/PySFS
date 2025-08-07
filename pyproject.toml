@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "PySFS"
+version = "0.1.1"
+description = "Python client for SFSControl Mod Server API"
+authors = [
+  { name = "DarkSpaceY", email = "yif.chien.nolimit@gmail.com" }
+]
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.6"
+dependencies = ["requests>=2.27"]
+
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent"
+]

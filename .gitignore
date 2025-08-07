@@ -1,0 +1,6 @@
+dist/
+PySFS/__pycache__/
+PySFS.egg-info/
+*.pyc
+tests/
+venv/
