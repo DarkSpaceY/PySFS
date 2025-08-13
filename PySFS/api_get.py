@@ -139,3 +139,16 @@ class SFSGetAPI(SFSClient):
         response = self.session.post(f"{self.base_url}/rcall", json=data)
         response.raise_for_status()
         return response.json()
+
+    def screenshot(self) -> Dict[str, Any]:
+        """
+        Get a screenshot of the SFS game window in PNG format.
+    
+        Requires 'allowScreenshot' to be enabled in the game settings.
+
+        Returns:
+            dict
+        """
+        # Send a GET request to the /screenshot endpoint
+        return self._get("/screenshot")
+

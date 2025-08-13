@@ -497,3 +497,90 @@ class SFSPostAPI(SFSClient):
             dict
         """
         return self._post("Revert", [revert_type])
+
+    def wheel_control(self, enable: Optional[bool] = None, turn_axis: float, rocketIdOrName: Optional[Union[int, str]] = None) -> Dict[str, Any]:
+        """
+        Control the direction of rover wheels.
+
+        Parameters:
+            enable (bool|None): Optional, True to enable wheel control, False to disable.
+            turn_axis (float): Required, the axis to turn the wheels (-1 to 1).
+            rocketIdOrName (int|str|None): Optional rocket ID or name.
+
+        Returns:
+            dict
+        """
+        params = [enable, turn_axis, rocketIdOrName]
+        return self._post("WheelControl", params)
+    
+    def set_map_icon_color(self, rgba_value: str, rocketIdOrName: Optional[Union[int, str]] = None) -> Dict[str, Any]:
+        """
+        Set the color of the rocket's map icon.
+
+        Parameters:
+            rgba_value (str): The color in rgba format (e.g., "#FF0000").
+            rocketIdOrName (int|str|None): Optional rocket ID or name.
+
+        Returns:
+            dict
+        """
+        params = [rgba_value, rocketIdOrName]
+        return self._post("SetMapIconColor", params)
+    
+    def create_rocket(self, planet_code: str, blueprint_json: str, rocket_name: Optional[str] = None, 
+                  x: Optional[float] = None, y: Optional[float] = None, 
+                  vx: Optional[float] = None, vy: Optional[float] = None, 
+                  vr: Optional[float] = None) -> Dict[str, Any]:
+        """
+        Create a rocket from a blueprint at a specified location.
+
+        Parameters:
+            planet_code (str): Code of the planet where the rocket will be created.
+            blueprint_json (str): JSON string representing the rocket's blueprint.
+            rocket_name (str|None): Optional name for the new rocket.
+            x (float|None): Optional x-coordinate for the rocket's position.
+            y (float|None): Optional y-coordinate for the rocket's position.
+            vx (float|None): Optional x-component of the rocket's initial velocity.
+            vy (float|None): Optional y-component of the rocket's initial velocity.
+            vr (float|None): Optional initial angular velocity of the rocket.
+
+        Returns:
+            dict
+        """
+        params = [planet_code, blueprint_json, rocket_name, x, y, vx, vy, vr]
+        return self._post("CreateRocket", params)
+    
+    def create_object(self, object_type: str, planet_code: str, 
+                  x: Optional[float] = None, y: Optional[float] = None, 
+                  object_name: Optional[str] = None, hidden: Optional[bool] = None, 
+                  explosion_size: Optional[float] = None, create_sound: Optional[bool] = None, 
+                  create_shake: Optional[bool] = None, rotation: Optional[float] = None, 
+                  angular_velocity: Optional[float] = None, ragdoll: Optional[bool] = None, 
+                  fuel_percent: Optional[float] = None, temperature: Optional[float] = None, 
+                  flag_direction: Optional[int] = None, show_flag_animation: Optional[bool] = None) -> Dict[str, Any]:
+        """
+        Create various objects (e.g., astronauts, explosions) with full parameter control.
+
+        Parameters:
+            object_type (str): Type of object to create (e.g., "astronaut").
+            planet_code (str): Code of the planet where the object will be created.
+            x (float|None): Optional x-coordinate for the object's position.
+            y (float|None): Optional y-coordinate for the object's position.
+            object_name (str|None): Optional name for the new object.
+            hidden (bool|None): Optional, True to hide the object initially.
+            explosion_size (float|None): Optional size of the explosion (if applicable).
+            create_sound (bool|None): Optional, True to create a sound effect.
+            create_shake (bool|None): Optional, True to create a screen shake effect.
+            rotation (float|None): Optional initial rotation of the object.
+            angular_velocity (float|None): Optional initial angular velocity of the object.
+            ragdoll (bool|None): Optional, True to enable ragdoll physics.
+            fuel_percent (float|None): Optional fuel percentage (if applicable).
+            temperature (float|None): Optional initial temperature of the object.
+            flag_direction (int|None): Optional direction for the flag (if applicable).
+            show_flag_animation (bool|None): Optional, True to show flag animation.
+
+        Returns:
+            dict
+        """
+        params = [object_type, planet_code, x, y, object_name, hidden, explosion_size, create_sound, create_shake, rotation, angular_velocity, ragdoll, fuel_percent, temperature, flag_direction, show_flag_animation]
+        return self._post("CreateObject", params)
