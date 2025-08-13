@@ -1,6 +1,6 @@
 # 🛰️ PySFS
 
-**PySFS** is a lightweight Python library to interact with the [Spaceflight Simulator Control Mod Server (SFSControl)](https://www.spaceflight-simulator.com/) via HTTP.
+**PySFS** is a lightweight Python library to interact with the [Spaceflight Simulator Control Mod Server (SFSControl)](https://github.com/SFSPlayer-sys/SFSControl) via HTTP.
 It provides high-level access to GET and POST endpoints for controlling rockets, retrieving telemetry, and issuing commands in real-time.
 
 ## 🚀 Features
